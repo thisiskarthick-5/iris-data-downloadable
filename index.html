@@ -82,6 +82,37 @@
             content: '⬇';
             font-size: 20px;
         }
+        .copy-btn {
+            background: linear-gradient(45deg, #28a745, #20c997);
+            color: white;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(40, 167, 69, 0.3);
+            margin-left: 15px;
+        }
+        .copy-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(40, 167, 69, 0.4);
+        }
+        .copy-btn::before {
+            content: '📋';
+            font-size: 20px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
     </style>
 </head>
 <body>
@@ -91,7 +122,18 @@
     </div>
     <div class="container">
         <h1>Iris Dataset</h1>
-        <a href="8836201/iris.csv" download="iris.csv" class="download-btn">Download CSV</a>
+        <div class="buttons">
+            <a href="https://raw.githubusercontent.com/thisiskarthick-5/iris-csv-file-/refs/heads/main/iris.csv" download="iris.csv" class="download-btn">Download CSV</a>
+            <button onclick="copyUrl()" class="copy-btn">Copy URL</button>
+        </div>
     </div>
+    <script>
+        function copyUrl() {
+            const url = 'https://raw.githubusercontent.com/thisiskarthick-5/iris-csv-file-/refs/heads/main/iris.csv';
+            navigator.clipboard.writeText(url).then(() => {
+                alert('URL copied to clipboard!');
+            });
+        }
+    </script>
 </body>
 </html>

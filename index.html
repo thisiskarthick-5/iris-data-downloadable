@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iris Dataset Download</title>
+    <title>Iris Dataset - Premium Collection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -11,127 +12,352 @@
             box-sizing: border-box;
         }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            padding: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.1) 0%, transparent 50%);
+            animation: aurora 20s ease-in-out infinite;
+        }
+        @keyframes aurora {
+            0%, 100% { opacity: 1; transform: rotate(0deg) scale(1); }
+            50% { opacity: 0.8; transform: rotate(180deg) scale(1.1); }
+        }
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: float 15s linear infinite;
+        }
+        .particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 20%; animation-delay: -2s; }
+        .particle:nth-child(3) { left: 30%; animation-delay: -4s; }
+        .particle:nth-child(4) { left: 40%; animation-delay: -6s; }
+        .particle:nth-child(5) { left: 50%; animation-delay: -8s; }
+        .particle:nth-child(6) { left: 60%; animation-delay: -10s; }
+        .particle:nth-child(7) { left: 70%; animation-delay: -12s; }
+        .particle:nth-child(8) { left: 80%; animation-delay: -14s; }
+        .particle:nth-child(9) { left: 90%; animation-delay: -16s; }
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
         }
         .header {
-            color: white;
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.95);
+            font-size: clamp(1.2rem, 4vw, 1.8rem);
+            font-weight: 300;
+            margin-bottom: 50px;
             text-align: center;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-        .logo {
-            width: 60px;
-            height: 60px;
-            background: white;
-            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 30px;
-            font-weight: bold;
-            color: #667eea;
+            gap: 15px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+            position: relative;
+            letter-spacing: 0.5px;
+        }
+        .logo {
+            width: clamp(45px, 6vw, 55px);
+            height: clamp(45px, 6vw, 55px);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(20px, 4vw, 24px);
+            color: white;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), 
+                        inset 0 1px 0 rgba(255, 255, 255, 0.3),
+                        0 0 0 1px rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.3s ease;
+        }
+        .logo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
         }
         .container {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 60px 40px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(40px);
+            border-radius: 24px;
+            padding: clamp(50px, 8vw, 70px) clamp(40px, 6vw, 60px);
+            box-shadow: 0 32px 64px rgba(0, 0, 0, 0.25), 
+                        inset 0 1px 0 rgba(255, 255, 255, 0.2),
+                        0 0 0 1px rgba(255, 255, 255, 0.1);
             text-align: center;
-            max-width: 500px;
-            width: 90%;
+            max-width: 520px;
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+        .container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
+        }
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 24px;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent, rgba(255,255,255,0.1));
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            pointer-events: none;
         }
         h1 {
-            color: #2c3e50;
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            color: rgba(255, 255, 255, 0.95);
+            font-size: clamp(2rem, 6vw, 2.8rem);
+            margin-bottom: 15px;
+            font-weight: 600;
+            letter-spacing: -1px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #ffffff, #e0e7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            margin-bottom: clamp(35px, 6vw, 45px);
             font-weight: 300;
+            letter-spacing: 0.3px;
         }
 
-        .download-btn {
-            background: linear-gradient(45deg, #667eea, #764ba2);
+        .btn {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(20px);
             color: white;
-            padding: 16px 32px;
-            border: none;
-            border-radius: 50px;
+            padding: clamp(16px, 3.5vw, 18px) clamp(32px, 7vw, 40px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
             cursor: pointer;
-            font-size: 18px;
-            font-weight: 600;
+            font-size: clamp(14px, 3vw, 16px);
+            font-weight: 500;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+            justify-content: center;
+            gap: 12px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15), 
+                        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            min-width: clamp(160px, 38vw, 180px);
+            position: relative;
+            overflow: hidden;
+            font-family: inherit;
+            letter-spacing: 0.3px;
+        }
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.6s;
+        }
+        .btn:hover::before {
+            left: 100%;
+        }
+        .btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25), 
+                        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        .btn:active {
+            transform: translateY(-1px) scale(0.98);
+        }
+        .download-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
         .download-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+            background: linear-gradient(135deg, #7c8ef0, #8a5ab8);
+            box-shadow: 0 16px 48px rgba(102, 126, 234, 0.4);
         }
-        .download-btn::before {
-            content: '⬇';
-            font-size: 20px;
-        }
-        .copy-btn {
-            background: linear-gradient(45deg, #28a745, #20c997);
-            color: white;
-            padding: 16px 32px;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
+        .download-btn .icon {
             font-size: 18px;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(40, 167, 69, 0.3);
-            margin-left: 15px;
         }
-        .copy-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(40, 167, 69, 0.4);
-        }
-        .copy-btn::before {
-            content: '📋';
-            font-size: 20px;
+        .copy-btn .icon {
+            font-size: 16px;
         }
         .buttons {
             display: flex;
             justify-content: center;
+            align-items: center;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: clamp(18px, 4vw, 28px);
+            margin-top: clamp(20px, 4vw, 25px);
+        }
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: clamp(25px, 5vw, 35px) 0 clamp(15px, 3vw, 20px);
+            padding: clamp(20px, 4vw, 25px);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .stat {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        .stat-number {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            font-weight: 600;
+            color: white;
+            margin-bottom: 5px;
+        }
+        .stat-label {
+            font-size: clamp(0.7rem, 2vw, 0.85rem);
+            font-weight: 300;
+            opacity: 0.7;
+        }
+        @media (max-width: 768px) {
+            .buttons {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .header {
+                flex-direction: column;
+                gap: 12px;
+                margin-bottom: 35px;
+            }
+            .stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+        @media (max-width: 480px) {
+            body {
+                padding: 15px;
+            }
+            .header {
+                margin-bottom: 30px;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+    
     <div class="header">
-        <div class="logo">🎓</div>
+        <div class="logo"></div>
         Hello CSE A boys and girls
     </div>
     <div class="container">
         <h1>Iris Dataset</h1>
+        <p class="subtitle">Premium machine learning dataset collection</p>
+        
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-number">150</div>
+                <div class="stat-label">Samples</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">4</div>
+                <div class="stat-label">Features</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Classes</div>
+            </div>
+        </div>
+        
         <div class="buttons">
-            <a href="https://raw.githubusercontent.com/thisiskarthick-5/iris-csv-file-/refs/heads/main/iris.csv" download="iris.csv" class="download-btn">Download CSV</a>
-            <button onclick="copyUrl()" class="copy-btn">Copy URL</button>
+            <a href="https://raw.githubusercontent.com/thisiskarthick-5/iris-csv-file-/refs/heads/main/iris.csv" download="iris.csv" class="btn download-btn">
+                <span class="icon">⬇</span>
+                Download CSV
+            </a>
+            <button onclick="copyUrl()" class="btn copy-btn">
+                <span class="icon">📋</span>
+                Copy URL
+            </button>
         </div>
     </div>
     <script>
         function copyUrl() {
             const url = 'https://raw.githubusercontent.com/thisiskarthick-5/iris-csv-file-/refs/heads/main/iris.csv';
             navigator.clipboard.writeText(url).then(() => {
-                alert('URL copied to clipboard!');
+                // Create a modern toast notification
+                const toast = document.createElement('div');
+                toast.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: linear-gradient(135deg, rgba(34, 197, 94, 0.9), rgba(22, 163, 74, 0.9));
+                    color: white;
+                    padding: 16px 24px;
+                    border-radius: 12px;
+                    font-family: 'Inter', sans-serif;
+                    font-size: 14px;
+                    font-weight: 500;
+                    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+                    backdrop-filter: blur(10px);
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                    z-index: 1000;
+                    transform: translateX(100%);
+                    transition: transform 0.3s ease;
+                `;
+                toast.textContent = '✓ URL copied to clipboard!';
+                document.body.appendChild(toast);
+                
+                setTimeout(() => toast.style.transform = 'translateX(0)', 100);
+                setTimeout(() => {
+                    toast.style.transform = 'translateX(100%)';
+                    setTimeout(() => document.body.removeChild(toast), 300);
+                }, 3000);
+            }).catch(() => {
+                alert('Failed to copy URL');
             });
         }
     </script>
